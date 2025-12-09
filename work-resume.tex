@@ -1,0 +1,95 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\definecolor{headercolor}{RGB}{173,100,82}
+\titleformat{\section}
+  {\color{headercolor}\large\bfseries}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\pagestyle{empty}
+\newcommand{\header}[1]{\textbf{\color{headercolor}#1}}
+\begin{document}
+% Header
+\begin{center}
+{\fontsize{24}{28}\selectfont\bfseries\color{headercolor} Jong Hyun (Joshua) Won}\\[0.5em]
+97 Merrivale Lane, Turramurra NSW 2074 • jwon4528@gmail.com • (+61) 0437 022 837
+\end{center}
+\noindent\rule{\textwidth}{2pt}
+\section*{Summary}
+DevOps Engineer with 5+ years of experience managing and maintaining platforms and CI/CD tools. Led migrations to Github from Bamboo/Bitbucket, Jenkins and Azure DevOps; integrated Crowdstrike in GHAS for code scanning and Tenable reporting on Kubernetes workloads on-prem/cloud nodes; performed FinOps analysis and optimisation on AWS accounts to save costs.
+
+\section*{Professional Experience}
+\vspace{0.3em}
+\header{Senior DevOps Engineer} \hfill \hfill \textit {March 2025--Present}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Lead Github migration of CI/CD tools and code repositories from Bamboo/Bitbucket to Github Actions/Github respectively; create automated migration tools, patterns and standards for all development teams on platform (supporting 400+ applications); engaged and supported dev team tenants and managers through engagement sessions, demos, walkthroughs and check-ins during migration journey;
+  \item Maintain and upgrade k8s platform (onprem + AWS EC2), including environment/cluster rebuilds/support, out-of-hours support and node building and maintenance (RHEL);
+  \item Build and develop pipelines and infrastructure (scripts through Ansible playbooks/custom wrappers; IaC through Terraform);
+  \item Integrate static code and image scanning tools such as Crowdstrike into repositories and CI/CD pipelines through Crowdstrike, and create simplified reporting for tenants;
+  \item Lead migration of .Net projects from Azure DevOps to Github/Github Actions, including creating new release process and MS Copilot metric dashboards.
+\end{itemize}
+\vspace{0.4em}
+\header{DevOps Engineer} \hfill \hfill \textit {Sep 2021--March 2025}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Designed and created Github CI/CD patterns, standards and documentation; created RFCs, roadmaps and network diagrams for architects;  
+  \item Integrated image scanning tools such as Snyk and Tenable integration into nodes;
+  \item Performed FinOps analysis and optimisation on division AWS accounts;
+  \item Migrated tenant CI/CD projects from Jenkins to Bamboo;
+  \item Led and organised company-wide hackathons; represented IAG at conferences such as Programmable.\%
+\end{itemize}
+\vspace{0.4em}
+\header{Digital Graduate} \hfill \hfill \textit {Feb 2020--Sep 2021}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+	\item Developed IAG product (NRMA, SGI, CGU) apps on Android using Kotlin, working on both
+	front end design components and back end API integration and bug fixes;  
+	\item Developed banking backend systems using Java, integrating automated security testing and up-
+	lifting code;
+	\item Collaborated with stakeholders and cross-platform staff to create new business and hackathon
+	solutions.
+\end{itemize}
+\vspace{0.4em}
+\header{Academic Tutor} \hfill \hfill \textit {July 2014--August 2017}\\
+University of Sydney, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Ran first year standard and advanced math tutorials, teaching courses in various fields (statistics,
+  linear algebra, vector calculus, discrete mathematics).
+\end{itemize}
+\vspace{0.4em}
+\header{Legal Support Officer} \hfill \hfill \textit {July 2017--August 2020}\\
+LegalAid, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+	\item Operated within a team of legal support officers and solicitors to complete high volume work and
+	client assistance for solicitors at the Mental Health Advocacy Service and Criminal Law division.
+\end{itemize}
+
+\vspace{0.3em}
+\section*{Education}
+\header{Master of Philosophy (Science)} \hfill \textit {Nov 2024}\\
+Thesis: Reaction-diffusion-advection models for collagenous cap formation in atherosclerotic plaques\\
+University of Sydney\\
+\newline
+\header{Bachelor of Laws (LLB)} \hfill \hfill \textit {2018}\\
+University of Sydney \\
+\newline
+\header{Bachelor of Science (Mathematics)} \hfill \textit {2017}\\
+Honors: Class I\\
+University of Sydney
+\vspace{0.3em}
+\section*{Skills}
+\header{Tech stack}
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item \textbf{Tools}: Github, Github Actions, Kubernetes, Docker, Terraform, AWS, Grafana, Ansible, Vault
+  \item \textbf{Languages}: Bash, Python, Go, MATLAB
+\end{itemize}
+\header{Languages}
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+	\item \textbf{Tools}: Github, Github Actions, Kubernetes, Docker, Terraform, AWS, Grafana, Ansible, Vault
+	\item \textbf{Languages}: Bash, Python, Go
+\end{itemize}
+\end{document}
