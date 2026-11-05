@@ -1,0 +1,114 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\definecolor{headercolor}{RGB}{173,100,82}
+\titleformat{\section}
+  {\color{headercolor}\large\bfseries}
+  {}{0em}{}
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\pagestyle{empty}
+\newcommand{\header}[1]{\textbf{\color{headercolor}#1}}
+\begin{document}
+% Header
+
+\newcommand{\SubItem}[1]{
+	{\setlength\itemindent{15pt} \item[-] #1}
+}
+
+\begin{center}
+{\fontsize{24}{28}\selectfont\bfseries\color{headercolor} Jong Hyun (Joshua) Won}\\[0.5em]
+97 Merrivale Lane, Turramurra NSW 2074 • jwon4528@gmail.com • (+61) 0437 022 837
+\end{center}
+\noindent\rule{\textwidth}{2pt}
+\section*{Summary}
+DevOps Engineer with 5+ years of experience managing and maintaining platforms and CI/CD tools. Lead migrations to Github from Bamboo/Bitbucket, Jenkins and Azure DevOps; deliver platform migration from Kubernetes self-managed to Google Cloud Run; create agentic workflows for application upgrade+migration; integrate Crowdstrike in GHAS for code scanning and Tenable reporting on Kubernetes workloads on-prem/cloud nodes; manage and support RKE2 self-managed and self-hosted hybrid (AWS and VSphere) clusters; performed FinOps analysis and optimisation on AWS accounts to save around \$1100 monthly, reducing our total bill by around 15\%.
+
+\section*{Professional Experience}
+\vspace{0.3em}
+\header{Senior DevOps Engineer} \hfill \hfill \textit {Mar 2025--Present}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Deliver platform migration from Kubernetes to GCP Cloud Run:
+    \SubItem{Integrate Copilot and Atlassian MCP in workflows that use agents to create data structures for observability and analyse Cloud Run criteria to upload documentation to Confluence, coded in Bash, Python and Go;}
+    \SubItem{Generate workflows to generate dashboards (hosted internally on AWS and Github Pages) for migration reporting and observability;}
+    \SubItem{Generate agentic workflows to upgrade Java/Node applications (version and Dockerfiles for Google base images);}
+    \SubItem{Design and implement application migration patterns and pathways from Kubernetes to Cloud Run.}
+  \item Lead Github migration of CI/CD tools and code repositories from Bamboo/Bitbucket to Github Actions/Github respectively:
+  	\SubItem{Create automated migration tools, patterns and standards for all development teams on platform (supporting 400+ applications) cross-org for multiple frameworks (eg: Java, Kotlin, .Net, Flutter);}
+  	\SubItem{Integrate guardrails to secure/harden CI/CD pipelines, such as container scanning on build (Crowdstrike fcs-action), SAST (GHAS), and auditing (attestation/label checks + PR validation + SNOW integration); guardrails prevent incidents where vulnerable/untested containers are deployed to production;}
+  	\SubItem{Engage and support dev team tenants and managers through engagement sessions, demos, walkthroughs and check-ins during migration journey;}
+  	\SubItem{Migration was scoped for 1.5 years; the migration has been completed in one year;}
+  	\SubItem{CI process is significantly more agile, with build times for images in our engineering team reducing from two minutes to around one and a half. This is due to integrated caching on repo level, improved lean base images provided to development teams (internal images with specific libraries and certificates that are continuously built/deployed daily to address vulnerabilities), and suggested DevOps improvements to optimisation (such as multi-stage Dockerfiles);}
+  	\SubItem{CD process is more agile. Dependence on legacy wrapper was removed and functions were replicated with Bash and Python scripts, which made improvements and vulnerability remediation for build processes easier and quicker; also removed need to pull and build wrapper container from registry every deployment.} 
+  \item Maintain and upgrade RKE2 platform (onprem + cloud), including environment/cluster rebuilds/support, out-of-hours support and node building and maintenance (RHEL):
+  	\SubItem{RKE2 platform is self-managed and self-hosted, using Rancher to manage installation and configurations. Clusters are hybrid, with controlplanes being EC2 instances and workers both VSphere VMs (RHEL9) and EC2 instances (RHEL9); blue-green deployment; around twenty clusters (each with ten to twenty worker nodes hosting two to three hundred workloads) in platform;}
+  	\SubItem{Images used for VMs/EC2 instances are built and deployed continuously to address vulnerabilities;}
+  	\SubItem{BAU cluster management involves managing RBAC, networking (inter-cluster traffic, traffic from cloud resources behind firewall to on-prem VMs, traffic from external), pod/deployment issues (using kubectl), container runtime vulnerability management (Crowdstrike KAC agent), and cluster issues (problems with Kubernetes components, resource issues with nodes);}
+	\SubItem{Observability through Prometheus and New Relic; monitoring through Prometheus and Grafana;}
+  	\SubItem{Provide on-call support for out-of-hours production level incidents, including writing runbooks, conducting post-portems and implementing future fixes.}
+
+  \item Build and develop pipelines and infrastructure (scripts through Ansible playbooks/custom wrappers; IaC through Terraform);
+  \item Integrate static code and image scanning tools through Crowdstrike into repositories and CI/CD pipelines:
+  	\SubItem{Integrate vulnerability reporting in CI/CD pipeline for application teams, leading to faster identification and reduction of critical and high vulnerabilities. Our internal engineering team reduced the number of critical and high vulnerabilities by around 30 percent across all deployed containers over three months, which would have taken longer prior to dashboard and reporting integration.}
+  \item Lead migration of .Net projects from Azure DevOps to Github/Github Actions, including creating new release process and MS Copilot metric dashboards.
+\end{itemize}
+\vspace{0.4em}
+\header{DevOps Engineer} \hfill \hfill \textit {Sep 2021--Mar 2025}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Performed FinOps analysis and optimisation on division AWS accounts:
+  	\SubItem{Identified and fixed high Direct Connect egress. Instances generating the most traffic were identified by filtering through the VPC flow logs, and traffic on these instances were primarily to on-prem worker nodes. I isolated the top four instances that generated the highest traffic, and noted that pod metrics for these nodes on Grafana dashboards showed two common workloads which generated high traffic. The cause was likely these workloads communicating to Prometheus workloads to retrieve pod metrics. After moving these workloads to on-prem nodes, the offending instance Direct Connect egress traffic decreased. This saved our account around \$600 monthly (Direct Connect egress reduced from around \$1500 to \$900);}
+  	\SubItem{Created Python script job on a cron schedule that identified all used AMIs, then purged all unused AMIs and EBS snapshots older than three months. This reduced monthly EC2 costs from around \$1900 to \$1600, saving around \$300. The total FinOps initiative saved around \$1100 monthly, reducing our total bill by around 15\%.}
+  \item Designed Github CI/CD patterns, standards and documentation; created RFCs, roadmaps and network diagrams for architects;
+  \item Built and improved inhouse CLI wrapper in Go;  
+  \item Deployed and upgraded image  run-time scanning tools such as Snyk, Tenable, Sysdig and Crowdstrike;
+  \item Migrated tenant CI/CD projects from Jenkins to Bamboo;
+  \item Led and organised company-wide hackathons; represented IAG at conferences such as Programmable.
+\end{itemize}
+\vspace{0.4em}
+\header{Digital Graduate} \hfill \hfill \textit {Feb 2020--Sep 2021}\\
+IAG, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+	\item Developed IAG product (NRMA, SGI, CGU) apps on Android using Kotlin, working on both
+	front end design components and back end API integration and bug fixes;  
+	\item Developed banking backend systems using Java, integrating automated security testing and up-
+	lifting code;
+	\item Collaborated with stakeholders and cross-platform staff to create new business and hackathon
+	solutions.
+\end{itemize}
+\vspace{0.4em}
+\header{Academic Tutor} \hfill \hfill \textit {Jan 2017--Feb 2020}\\
+University of Sydney, Sydney, Australia
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item Ran first year standard and advanced math tutorials, teaching courses in various fields (statistics,
+  linear algebra, vector calculus, discrete mathematics).
+\end{itemize}
+
+\vspace{0.3em}
+\section*{Education}
+\header{Master of Philosophy (Science)} \hfill \textit {Nov 2024}\\
+Thesis: Reaction-diffusion-advection models for collagenous cap formation in atherosclerotic plaques (2024)\\
+University of Sydney\\
+\newline
+\header{Bachelor of Laws (LLB)} \hfill \hfill \textit {2018}\\
+University of Sydney \\
+\newline
+\header{Bachelor of Science (Mathematics)} \hfill \textit {2017}\\
+Honors: Class I\\
+University of Sydney
+\vspace{0.3em}
+\section*{Skills}
+\header{Tech stack}
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+  \item \textbf{Tools}: Github, Github Actions, Kubernetes, Docker, Terraform, AWS, Grafana, Ansible, Vault
+  \item \textbf{Languages}: Bash, Python, Go, MATLAB
+\end{itemize}
+\header{Languages}
+\begin{itemize}[leftmargin=2em,itemsep=0.3ex]
+	\item \textbf{Expert}: English
+	\item \textbf{Proficient}: Korean
+\end{itemize}
+\end{document}
